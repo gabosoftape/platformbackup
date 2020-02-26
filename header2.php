@@ -1,7 +1,7 @@
 <?php 
 date_default_timezone_set('America/Bogota');
-use Ang3\Component\Odoo\ExternalApiClient;
 require __DIR__ . '/vendor/autoload.php';
+use Ang3\Component\Odoo\ExternalApiClient;
 session_start();
 include 'config/conexion.php';
 include 'config/odoo_server.php';
