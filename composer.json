@@ -1,6 +1,5 @@
 {
     "require": {
-        "ang3/php-odoo-api-client": "^3.0",
-        "paragonie/random_compat": ">=2"
+        "mpdf/mpdf": "^8.0"
     }
 }
