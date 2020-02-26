@@ -152,7 +152,7 @@ $html='
 			<table style="width:100%;">
 				<tr>
 					<td colspan="3">
-						<img src="https://gpscontrol.cf/fuec/images/mintransporte.png" alt=""/>
+						<img src="https://50.116.2.74/fuec/images/mintransporte.png" alt=""/>
 					</td>
 					<td colspan="3" style="text-align:center;">
 						<img src="../images/logos/'.($rowempresa['logo']).'" alt="" style="width:100%; max-width: 300px; max-height: 100px;"/>
