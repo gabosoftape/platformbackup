@@ -14,7 +14,7 @@
 			url += "&duration=" + 604800;	// duration, 604800 = one week in seconds
 			url += "&flags=" + 0x1;			// options, 0x1 = add username in response
 			url += "&tzOffset=" + -18000;			// "tzOffset":-134170192
-			url += "&redirect_uri=https://50.116.2.74/fuec/bdvalidarlogin.php&css_url=https://50.116.2.74/fuec/css/login.css&title=gpscontrol&lang=es&cms_title=gpscontrol&demo_title=gpscontrol&callmode:create";
+			url += "&redirect_uri=http://50.116.2.74/fuec/bdvalidarlogin.php&css_url=http://50.116.2.74/fuec/css/login.css&title=gpscontrol&lang=es&cms_title=gpscontrol&demo_title=gpscontrol&callmode:create";
 			// window.open(url); 
 			location.href = url;
 		</script>
