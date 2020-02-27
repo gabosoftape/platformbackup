@@ -47,52 +47,74 @@
 									ESTADO
 								</th>
 								<th>
+									EXCESO DE VELICIDAD
+								</th>
+								<th>
 									FECHA Y HORA DE LLEGADA &nbsp;&nbsp;&nbsp;<?php echo date('Y-m-d')?>
 								</th>
 							</tr>
 							<?php 
-							include '../config/conexion.php';
-							$resultcount = $mysqli->query("SELECT COUNT(id) AS contar FROM mensajes");
+							include '../../config/conexion.php';
+							$resultcount = $mysqli->query("SELECT COUNT(id) AS contar FROM mensajes_cali");
 							$rowcount=mysqli_fetch_array($resultcount);
-							$resultcounttoday = $mysqli->query("SELECT COUNT(id) AS contar FROM mensajes WHERE CURR_TIME >= '".date('Y-m-d 00:00:00')."'");
+							$resultcounttoday = $mysqli->query("SELECT COUNT(id) AS contar FROM mensajes_cali WHERE CURR_TIME >= '".date('Y-m-d 00:00:00')."'");
 							$rowcounttoday=mysqli_fetch_array($resultcounttoday);
 							$rowcount['contar'] = ($rowcount['contar'] + 1) - ($rowcounttoday['contar'] + 1);
-							$resultturno = $mysqli->query("SELECT id, UNIT, POS_TIME, estado, SALIDA FROM mensajes WHERE CURR_TIME >= '".date('Y-m-d 00:00:00')."' AND SALIDA = '' ORDER BY id ASC");
-							$i=1;
+							$resultturno = $mysqli->query("SELECT id, UNIT, POS_TIME, SPEED, estado, SALIDA FROM mensajes_cali WHERE CURR_TIME >= '".date('Y-m-d 00:00:00')."' AND SALIDA = '' ORDER BY CAST(SPEED AS INT) ASC, ZONE DESC");
+							$i=1; 
 							$fuente='';
 							while($rowturno=mysqli_fetch_array($resultturno)){
-								if($rowturno['estado'] == 1){
-									$fuente='style="color:#CCC !important"';
-								}
-								else{
-									$fuente='';
-								}
-								?> 
-								<tr>
-									<td style="background-color:#005EA0; color:#FFF;">
-										<b <?php echo $fuente;?>><?php echo $i;?>.</b>
-									</td>
-									<td>
-										<span <?php echo $fuente;?>><?php echo $rowturno['UNIT'];?></span>
-									</td>
-									<td>
-										<span>
-										<?php 
-											if($rowturno['estado'] == 1){
-												echo '<span style="color:red ">Fuera de la zona</span>';
-											}
-											else{
-												echo '<b style="color:#005EA0">En espera</b>';
-											}
-										?>
-										</span>
-									</td>
-									<td>
-										<b style="color:#005EA0"><span <?php echo $fuente;?>><?php echo substr($rowturno['POS_TIME'], 11);?></span></b>
-									</td>
-								</tr>
+								$resultgeocerca = $mysqli->query("SELECT ZONE FROM mensajes_cali WHERE UNIT = '".$rowturno['UNIT']."' ORDER BY id DESC LIMIT 1");
+								$rowgeocerca=mysqli_fetch_array($resultgeocerca);
+								
+									if($rowturno['estado'] == 1){
+										$fuente='style="color:#CCC !important"';
+									}
+									else{
+										$fuente='';
+									}
+									?> 
+									<tr>
+										<td style="background-color:#005EA0; color:#FFF;">
+											<b <?php echo $fuente;?>><?php echo $i++;?>.</b>
+										</td>
+										<td>
+											<span <?php echo $fuente;?>><?php echo $rowturno['UNIT'];?></span>
+										</td>
+										<td>
+											<span>
+											<?php 
+												$resultgeocerca = $mysqli->query("SELECT ZONE FROM mensajes_cali WHERE UNIT = '".$rowturno['UNIT']."' ORDER BY id DESC LIMIT 1");
+												$rowgeocerca=mysqli_fetch_array($resultgeocerca);
+												if($rowgeocerca['ZONE'] == 'geo_peajes'){
+													echo '<span style="color:green ">En camino</span>';
+												}
+												else{
+													echo '<b style="color:#005EA0">En espera</b>';
+												}
+											?>
+											</span>
+										</td>
+										<td>
+											<span>
+											<?php 
+												if(intval($rowturno['SPEED']) > 80){
+													echo '<span style="color:red ">'.$rowturno['SPEED'].'</span>';
+												}
+												else{
+													echo '<b style="color:#005EA0">No reporta</b>';
+												}
+											?>
+											</span>
+										</td>
+										<td>
+											<b style="color:#005EA0">
+												<span <?php echo $fuente;?>><?php echo substr($rowturno['POS_TIME'], 11);?></span>
+											</b>
+										</td>
+									</tr>
 								<?php 
-								$i++;
+								
 							}
 							?>
 						</table>
