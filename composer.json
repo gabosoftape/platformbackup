@@ -1,6 +1,0 @@
-{
-    "require": {
-        "ang3/php-odoo-api-client": "^3.0",
-        "paragonie/random_compat": ">=2"
-    }
-}
