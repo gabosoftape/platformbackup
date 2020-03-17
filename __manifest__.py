@@ -1,39 +1,39 @@
 # -*- coding: utf-8 -*-
-###################################################################################
-#    A part of Open HRMS Project <https://www.openhrms.com>
+##############################################################################
 #
 #    Cybrosys Technologies Pvt. Ltd.
-#    Copyright (C) 2018-TODAY Cybrosys Technologies (<https://www.cybrosys.com>).
-#    Author: Nilmar Shereef (<https://www.cybrosys.com>)
-#
-#    This program is free software: you can modify
-#    it under the terms of the GNU Affero General Public License (AGPL) as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
+#    Copyright (C) 2017-TODAY Cybrosys Technologies(<http://www.cybrosys.com>).
+#    Author: Jesni Banu(<http://www.cybrosys.com>)
+#    you can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (AGPL v3), Version 3.
+
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
+#    GNU LESSER GENERAL PUBLIC LICENSE (AGPL v3) for more details.
 #
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    GENERAL PUBLIC LICENSE (AGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
 #
-###################################################################################
+##############################################################################
 {
-    'name': 'Open HRMS Employees From User',
+    'name': 'Project Task Timer',
     'version': '13.0.1.0.0',
-    'summary': 'Automatically Creates Employee While Creating User',
-    'description': 'This module helps you to create employees automatically while creating users',
-    'category': 'Generic Modules/Human Resources',
+    'summary': """Task Timer With Start & Stop""",
+    'description': """"This module helps you to track time sheet in project automatically.""",
+    'category': 'Project',
     'author': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
-    'website': "https://www.openhrms.com",
-    'depends': ['base', 'hr'],
-    'data': ['views/employee_creation_from_user_view.xml'],
-    'demo': [],
-    'images': ['static/description/banner.jpg'],
+    'website': "http://www.cybrosys.com",
+    'depends': ['base', 'project', 'hr_timesheet'],
+    'data': [
+        'views/project_task_timer_view.xml',
+        'views/project_timer_static.xml',
+    ],
+    'images': ['static/description/banner.png'],
     'license': 'AGPL-3',
+    'demo': [],
     'installable': True,
     'auto_install': False,
     'application': False,
