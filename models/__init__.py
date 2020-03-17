@@ -1,4 +1,5 @@
-# See LICENSE file for full copyright and licensing details.
+# -*- coding: utf-8 -*-
 
-from . import project_team
-from . import crm_team
+from . import deadline_reminder
+
+
