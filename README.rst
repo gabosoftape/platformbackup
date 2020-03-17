@@ -1,20 +1,24 @@
-Project Task Timer v13
-======================================
-Task Timer with Start & Stop 
+==============
+Project Team
+==============
 
-Installation
-============
-	- www.odoo.com/documentation/13.0/setup/install.html
-	- Install our custom addon
+* This module is developed to set project team members.
 
-Configuration
-=============
+* You can configure the project teams from 'Projects team' menu under configuration of projects.
 
-    No additional configurations needed
+* Once you select the relevant project team, you will get the associated team members automatically assigned to that project team.
+
+Usage
+=====
+
+Bug Tracker
+===========
 
 Credits
 =======
-    Developer: Jesni Banu v10 @ cybrosys, Contact: odoo@cybrosys.com
-	       Kavya Raveendran v11 @ cybrosys, Contact: odoo@cybrosys.com
-	       Kavya Raveendran v12 @ cybrosys, Contact: odoo@cybrosys.com
-           Sreejith sasidharan v13 @ cybrosys, Contact: odoo@cybrosys.com
+
+Contributors
+------------
+
+* Serpent Consulting Services Pvt. Ltd. <support@serpentcs.com>
+
